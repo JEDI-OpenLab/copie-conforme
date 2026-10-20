@@ -4,11 +4,13 @@
 
 ---
 
+## 20 octobre 2026 · Le jeu d'abord sur le web
+
+Le jeu est développé d'abord sur le dépôt, jouable dans le navigateur, puis empaqueté en SCORM pour le cours Moodle 4.5. Les passages qui concernent Moodle (activités, extensions, paramétrage) sont marqués comme tels dans les documents de conception.
+
 ## 20 octobre 2026 · Ouverture du dépôt
 
 Le projet devient public. Le dépôt publie la démarche au fur et à mesure : les trois documents de conception d'abord, puis les contenus des séquences, les activités H5P et le cours Moodle exportable. Les documents internes à l'établissement restent hors du dépôt.
-
-Un site accompagne le dépôt : il présente le jeu, publie les documents de conception et affiche l'avancement, en attendant la version jouable.
 
 ## 7 octobre 2026 · Alignement des documents
 

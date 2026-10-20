@@ -4,3 +4,6 @@ dist/
 .DS_Store
 # Généré à partir des fichiers Markdown du dépôt (npm run sync)
 src/content/docs/
+
+# Brouillons de conception : jamais publiés
+_prive/

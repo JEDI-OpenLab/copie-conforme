@@ -64,7 +64,9 @@ Prologue · La copie n° 17
 
 ---
 
-## 3. Les activités Moodle utilisées
+## 3. Mise en œuvre Moodle : les activités utilisées
+
+Cette section concerne uniquement Moodle : elle décrit le paquet pour le cours Moodle, et non le jeu web.
 
 Toutes figurent dans l'écran « Ajouter une activité ou ressource » du Moodle de Centrale Lille.
 
@@ -91,7 +93,9 @@ Les participants sont inscrits avec le rôle étudiant ; les membres du Pôle, 
 
 ---
 
-## 4. Extensions officielles à demander
+## 4. Extensions Moodle à demander
+
+Cette section concerne uniquement Moodle.
 
 Relevé effectué sur le répertoire des plugins de moodle.org le 1er octobre 2026. Les compatibilités sont à croiser avec la version du Moodle de Centrale Lille.
 
@@ -163,7 +167,7 @@ La copie conclut :
 
 La séquence 1 s'ouvre.
 
-**Activités Moodle.** Zone texte et média ; Sondage ; Page (mode d'emploi) ; Wiki (création du carnet).
+**Mise en œuvre Moodle.** Zone texte et média ; Sondage ; Page (mode d'emploi) ; Wiki (création du carnet).
 
 ---
 
@@ -231,7 +235,7 @@ La séquence 1 s'ouvre.
 - Appel à l'action : *« Écrire votre règle d'usage de l'IA pour le syllabus : 30 minutes avec le Pôle Accompagnement pédagogique. »*
 - Transition de la copie : *« Si une IA a participé, elle appartenait bien à quelqu'un. »*
 
-**Activités Moodle.** Zone texte et média ; Test (accroche non notée, appariement noté) ; Contenu interactif (Course Presentation) ; Sondage ; Wiki ; Rendez-vous ; URL.
+**Mise en œuvre Moodle.** Zone texte et média ; Test (accroche non notée, appariement noté) ; Contenu interactif (Course Presentation) ; Sondage ; Wiki ; Rendez-vous ; URL.
 
 ---
 
@@ -302,7 +306,7 @@ La séquence 1 s'ouvre.
 - Le hors-piste B s'ouvre.
 - Transition de la copie : *« Une chaîne, ça consomme. Je me demande combien j'ai coûté. »*
 
-**Activités Moodle.** Zone texte et média ; Sondage ; Contenu interactif (Course Presentation, Drag and Drop) ; Fichier (fiche du test) ; Wiki ; Rendez-vous ; URL.
+**Mise en œuvre Moodle.** Zone texte et média ; Sondage ; Contenu interactif (Course Presentation, Drag and Drop) ; Fichier (fiche du test) ; Wiki ; Rendez-vous ; URL.
 
 ---
 
@@ -366,7 +370,7 @@ La séquence 1 s'ouvre.
 - Le hors-piste A s'ouvre.
 - Transition de la copie : *« J'ai consommé de l'électricité, de l'eau, du sol. Mais de quoi suis-je faite, au juste ? »*
 
-**Activités Moodle.** Zone texte et média ; Test ; Contenu interactif (Course Presentation, Sort the Paragraphs, Single Choice Set) ; Wiki ; Rendez-vous ; URL.
+**Mise en œuvre Moodle.** Zone texte et média ; Test ; Contenu interactif (Course Presentation, Sort the Paragraphs, Single Choice Set) ; Wiki ; Rendez-vous ; URL.
 
 ---
 
@@ -428,7 +432,7 @@ La séquence 1 s'ouvre.
 - Appel à l'action : *« Vos supports de cours face à l'IA : licences, ouverture, ce que vous choisissez de partager. Un rendez-vous avec le Pôle Accompagnement pédagogique pour en parler. »*
 - Transition de la copie : *« L'électricité, la chaîne, la matière… Vous avez remarqué ? C'est chaque fois le même mouvement. »*
 
-**Activités Moodle.** Zone texte et média ; Test ; Contenu interactif (Course Presentation, Timeline, Sort the Paragraphs, Dialog Cards) ; Wiki ; Rendez-vous ; URL.
+**Mise en œuvre Moodle.** Zone texte et média ; Test ; Contenu interactif (Course Presentation, Timeline, Sort the Paragraphs, Dialog Cards) ; Wiki ; Rendez-vous ; URL.
 
 ---
 
@@ -491,7 +495,7 @@ La séquence 1 s'ouvre.
 
 **Point de vigilance.** C'est la séquence la plus engagée. Le parcours présente la grille comme le billet le fait, thèse et objections ensemble ; la note de position du billet reste dans le billet, accessible par le lien, et ne devient pas la voix du Pôle. La copie, elle, ne prend pas parti : elle constate.
 
-**Activités Moodle.** Zone texte et média ; Sondage ; Contenu interactif (Course Presentation, Drag and Drop) ; Test ; Forum ; Wiki ; Rendez-vous ; URL.
+**Mise en œuvre Moodle.** Zone texte et média ; Sondage ; Contenu interactif (Course Presentation, Drag and Drop) ; Test ; Forum ; Wiki ; Rendez-vous ; URL.
 
 ---
 
@@ -553,7 +557,7 @@ La séquence 1 s'ouvre.
 - Appel à l'action, le principal du parcours : *« Repenser une activité ou une évaluation pour protéger un effort : 30 minutes avec le Pôle Accompagnement pédagogique. »*
 - L'épilogue s'ouvre.
 
-**Activités Moodle.** Zone texte et média ; Test (comportement « degré de certitude ») ; Contenu interactif (Course Presentation, Drag and Drop) ; Wiki ; Rendez-vous ; URL.
+**Mise en œuvre Moodle.** Zone texte et média ; Test (comportement « degré de certitude ») ; Contenu interactif (Course Presentation, Drag and Drop) ; Wiki ; Rendez-vous ; URL.
 
 ---
 
@@ -609,7 +613,7 @@ Chaque fin pose la même question, au participant et non à l'étudiant·e : *�
 - Questionnaire final (Feedback, trois questions) : utilité perçue, temps réellement passé, suite souhaitée.
 - Mention finale : de nouvelles séquences arriveront au rythme du carnet.
 
-**Activités Moodle.** Zone texte et média ; Sondage (rappel des résultats du prologue) ; Contenu interactif (Branching Scenario) ou Leçon ; Wiki ; Rendez-vous ; Feedback (demande d'accompagnement, questionnaire final) ; Badge ; Fichier (fiche récapitulative).
+**Mise en œuvre Moodle.** Zone texte et média ; Sondage (rappel des résultats du prologue) ; Contenu interactif (Branching Scenario) ou Leçon ; Wiki ; Rendez-vous ; Feedback (demande d'accompagnement, questionnaire final) ; Badge ; Fichier (fiche récapitulative).
 
 ---
 
@@ -647,7 +651,7 @@ Puis : passer Doceria au test de souveraineté de la séquence 2.
 
 **Dénouement (transition).** La copie : *« Si l'on m'avait écrite avec celle-là, j'aurais su d'où venait chacune de mes phrases. »* Badge « Hors-piste ». Appel à l'action : à trancher (simple échange sur la démarche, ou proposition de test), voir § 9.
 
-**Activités Moodle.** Zone texte et média ; Contenu interactif (Single Choice Set) ; Wiki ; URL.
+**Mise en œuvre Moodle.** Zone texte et média ; Contenu interactif (Single Choice Set) ; Wiki ; URL.
 
 ---
 
@@ -681,7 +685,7 @@ Puis : passer Doceria au test de souveraineté de la séquence 2.
 
 **Dénouement (transition).** La copie : *« Je suis un rapport : je voyage bien. Mais un cours n'est pas qu'une suite de documents. »* Carnet : *« Si votre cours basculait à distance lundi, que perdrait-il en premier ? »* Appel à l'action : *« Concevoir une version à distance robuste de votre cours, avant d'en avoir besoin, avec le Pôle Accompagnement pédagogique. »* Badge « Hors-piste ».
 
-**Activités Moodle.** Zone texte et média ; Sondage ; Contenu interactif (Drag and Drop, Image Hotspots) ; Wiki ; Rendez-vous ; URL.
+**Mise en œuvre Moodle.** Zone texte et média ; Sondage ; Contenu interactif (Drag and Drop, Image Hotspots) ; Wiki ; Rendez-vous ; URL.
 
 ---
 

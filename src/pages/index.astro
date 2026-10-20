@@ -63,7 +63,7 @@ const publics = [
 					limpide, pas une faute. […] Je ne sais pas d’où je viens. »
 				</blockquote>
 				<p class="lede">
-					Un serious game d’autoformation pour les enseignants du supérieur, sur Moodle. Vous jouez votre propre rôle et menez l’enquête avec
+					Un serious game d’autoformation pour les enseignants du supérieur, jouable dans le navigateur, puis sur Moodle. Vous jouez votre propre rôle et menez l’enquête avec
 					la copie, de l’outil jusqu’à l’apprentissage de l’étudiant·e.
 				</p>
 				<div class="ctas">
@@ -109,24 +109,6 @@ const publics = [
 				ajoute au dossier d’enquête.
 			</p>
 			<Cartes />
-
-			<div class="side">
-				<div class="box">
-					<p class="kicker">Avant</p>
-					<strong>Prologue · La copie n° 17</strong>
-					<span>5 minutes. Vous vérifiez la quatrième référence : elle n’existe pas. Premier réflexe ? Votre réponse sera relue à la fin.</span>
-				</div>
-				<div class="box">
-					<p class="kicker">Facultatif</p>
-					<strong>Hors-piste A · Le présentiel deviendra-t-il un privilège ?</strong>
-					<span>S’ouvre après la séquence 3. <a href="https://jediopenlab.hypotheses.org/379">Billet source ↗</a></span>
-				</div>
-				<div class="box">
-					<p class="kicker">Facultatif</p>
-					<strong>Hors-piste B · Itinéraire d’une IA pédagogique souveraine</strong>
-					<span>S’ouvre après la séquence 2. <a href="https://jediopenlab.hypotheses.org/209">Billet source ↗</a></span>
-				</div>
-			</div>
 		</section>
 
 		<section class="split">
@@ -385,35 +367,6 @@ const publics = [
 	.stats span {
 		color: var(--sl-color-gray-3);
 		font-size: var(--sl-text-sm);
-	}
-	.side {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 1rem;
-		margin-top: 1.25rem;
-	}
-	@media (max-width: 56rem) {
-		.side {
-			grid-template-columns: 1fr;
-		}
-	}
-	.box {
-		display: flex;
-		flex-direction: column;
-		gap: 0.35rem;
-		padding: 1rem 1.2rem;
-		border-radius: 0.9rem;
-		border: 1px dashed var(--sl-color-gray-4);
-		color: var(--sl-color-gray-2);
-		font-size: var(--sl-text-sm);
-	}
-	.box .kicker {
-		font-size: var(--sl-text-xs);
-		margin: 0;
-	}
-	.box strong {
-		color: var(--sl-color-white);
-		font-size: var(--sl-text-base);
 	}
 	.split {
 		display: grid;

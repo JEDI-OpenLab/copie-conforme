@@ -110,7 +110,7 @@ Pour chaque séquence : ce que le joueur cherche (ludique), ce qu'il fait, et c
 | Type de serious game | Jeu d'enquête à trame narrative en autoformation : une suite de micro-situations, des épreuves courtes avec feedback, une collection, une fin à embranchements |
 | Fil rouge | Une réponse d'IA arrive dans une copie ; on remonte d'où elle vient |
 | Principe de déroulement | Progression linéaire par déverrouillage, dans l'ordre des billets. Chaque séquence est une micro-situation : situation initiale, élément perturbateur, développement, résolution, dénouement. Les embranchements sont réservés à l'épilogue et aux hors-pistes. |
-| Solution technique | Cours Moodle : sections, achèvement et restrictions d'accès, H5P (dont Branching Scenario pour l'entretien), quiz, badges, wiki individuel |
+| Solution technique | Jeu web (navigateur) ; paquet SCORM pour Moodle 4.5. Mise en œuvre Moodle : sections, achèvement et restrictions d'accès, H5P (dont Branching Scenario pour l'entretien), quiz, badges, wiki individuel |
 | Peut-on revenir en arrière ? | Oui : séquences terminées, billets et glossaire restent ouverts |
 | Que gagne-t-on ? | Une carte et un badge par séquence ; le dossier bouclé et le badge final |
 | Que se passe-t-il en cas d'erreur ? | Un feedback explicatif et une nouvelle tentative, sans pénalité |

@@ -1,6 +1,6 @@
 # Copie conforme ? Enquête sur une réponse d'IA
 
-Un serious game d'autoformation pour les enseignants du supérieur, sur Moodle, conçu et documenté en ressource éducative libre.
+Un serious game d'autoformation pour les enseignants du supérieur, jouable dans le navigateur puis sur Moodle, conçu et documenté en ressource éducative libre.
 
 Le dépôt publie le jeu au fur et à mesure de sa construction : la démarche de conception, les contenus des séquences, puis les activités et le cours exportables. Il suit le projet de l'analyse du besoin jusqu'au test, pour que d'autres équipes puissent le réutiliser, l'adapter ou s'en inspirer.
 
@@ -23,7 +23,7 @@ Le dossier se referme sur la seule question qui reste : qu'est-ce qui, dans ma 
 | Public | Enseignants et enseignants-chercheurs |
 | Modalité | Autoformation individuelle, à distance, asynchrone |
 | Durée | Environ 1 h 45 : un prologue, six séquences de 15 minutes, un épilogue ; deux hors-pistes facultatifs |
-| Plateforme | Moodle 4.5 : activités natives, H5P, badges |
+| Plateforme | Jeu web (navigateur), puis paquet SCORM pour Moodle 4.5. Mise en œuvre Moodle : activités natives, H5P, badges |
 | Contenu | Une série de billets publiés sur le carnet [JEDI-OpenLab](https://jediopenlab.hypotheses.org/) (Hypothèses), une séquence par billet |
 | Méthode | ADDIE pour l'ingénierie, D.I.C.E. pour la conception du jeu |
 | Contexte | Conçu à Centrale Lille ; les appels à l'action renvoient au Pôle Accompagnement pédagogique de l'école |
@@ -56,8 +56,7 @@ copie-conforme/
   journal/           journal de conception daté
   conception/        fiche de conception, macro-scénario, scénario détaillé
   sequences/         textes, diapositives, scripts audio, questions GIFT (à venir)
-  h5p/               activités H5P exportées (à venir)
-  moodle/            sauvegarde du cours Moodle (à venir)
+  moodle/            paquet SCORM pour Moodle 4.5 (à venir)
   src/, scripts/     site du projet (Astro Starlight), construit à partir des fichiers Markdown
 ```
 

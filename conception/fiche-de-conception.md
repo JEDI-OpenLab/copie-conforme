@@ -9,7 +9,7 @@
 | Public                | Enseignants et enseignants-chercheurs de Centrale Lille                                |
 | Modalité              | Autoformation individuelle, à distance, asynchrone                                     |
 | Durée                 | Environ 1 h 45, en capsules de 15 minutes, plus deux hors-pistes facultatifs           |
-| Support               | Moodle de Centrale Lille : activités natives, H5P, badges                              |
+| Support               | Jeu web, puis Moodle de Centrale Lille (paquet SCORM 4.5) : mise en œuvre en activités natives, H5P, badges                              |
 | Matière première      | Huit billets publiés du carnet JEDI-OpenLab (Hypothèses), texte sous licence CC BY 4.0 |
 | Méthode de conception | ADDIE pour le cadre d'ingénierie, D.I.C.E. pour la conception du jeu                   |
 
@@ -53,7 +53,7 @@ Un serious game narratif d'autoformation : une enquête en six séquences sur u
 | Moyens           | Disponible                                                                                              | Contrainte                                                                            |
 | ---------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | Humains          | Ingénierie pédagogique et auteur des billets ; pôle accompagnement pédagogique pour les rendez-vous et les ateliers | Pas de tutorat synchrone permanent                                                    |
-| Techniques       | Moodle de Centrale Lille : activités natives, H5P, badges                                               | Types H5P et extensions disponibles à vérifier avec l'administration                  |
+| Techniques       | Jeu web, puis Moodle de Centrale Lille (paquet SCORM 4.5) : mise en œuvre en activités natives, H5P, badges                                               | Types H5P et extensions disponibles à vérifier avec l'administration                  |
 | Organisationnels | Catégorie Moodle déjà réservée aux enseignants                                                          | Formation volontaire : l'engagement doit être gagné, pas imposé                       |
 | Éditoriaux       | Contenus déjà validés, publiés et sous licence ouverte                                                  | Ne rien affirmer qui ne figure dans un billet publié ; dater les contenus périssables |
 
@@ -188,7 +188,7 @@ Selon le modèle G/P/S de Djaouti, Alvarez et Jessel : *Gameplay*, jeu à objec
 
 | Moyen | Usage dans le parcours | Remarque |
 | --- | --- | --- |
-| Cours Moodle | Une section par séquence ; achèvement d'activité et restrictions d'accès | Catégorie réservée aux enseignants |
+| Cours Moodle (mise en œuvre Moodle) | Une section par séquence ; achèvement d'activité et restrictions d'accès | Catégorie réservée aux enseignants |
 | Choix (sondage) | Accroches et baromètre anonyme, résultats affichés après réponse | Natif |
 | Test (quiz) | Appariements, vrai-faux, estimation ; degré de certitude (CBM) à la séquence 6 | Natif ; banques de questions au format GIFT |
 | Glossaire | Concepts des billets, cliquables partout grâce au filtre de liens automatiques | Natif, filtre à activer |
@@ -196,10 +196,10 @@ Selon le modèle G/P/S de Djaouti, Alvarez et Jessel : *Gameplay*, jeu à objec
 | Feedback | Questionnaire final ; formulaire de demande d'accompagnement | Natif |
 | Forum | Débat facultatif de la séquence 5 ; défi de la semaine | Natif |
 | Badges | Une carte par séquence, un badge « Hors-piste », un badge final | Natif, à activer |
-| H5P | Course Presentation, Drag and Drop, Sort the Paragraphs, Single Choice Set, Timeline, Dialog Cards, Image Hotspots, Branching Scenario | Types activés à vérifier |
+| H5P (mise en œuvre Moodle) | Course Presentation, Drag and Drop, Sort the Paragraphs, Single Choice Set, Timeline, Dialog Cards, Image Hotspots, Branching Scenario | Types activés à vérifier |
 | Médias | Audio de 5 minutes par séquence ; cartes illustrées ; fiche récapitulative PDF | À produire |
 | Ressources humaines | Conception et voix ; service pour les rendez-vous et ateliers ; trois à cinq collègues testeurs | |
-| Licence | Contenus exportables (paquets H5P, questions GIFT) pour une diffusion en ressource éducative libre sur le GitHub JEDI-OpenLab | Texte des billets sous CC BY 4.0 |
+| Licence | Contenus exportables (paquets SCORM et H5P, questions GIFT) pour une diffusion en ressource éducative libre sur le GitHub JEDI-OpenLab | Texte des billets sous CC BY 4.0 |
 
 ---
 

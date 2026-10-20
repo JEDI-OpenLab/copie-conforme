@@ -9,9 +9,9 @@ const u = (p: string) => `${base}/${p}`;
 const pilote = avancement().find((e) => /pilote/i.test(e.livrable));
 
 const livrables = [
-	{ t: 'Le cours Moodle', d: 'La sauvegarde complète du cours, à restaurer sur votre plateforme (Moodle 4.5) : sections, achèvements, restrictions, badges.', dossier: 'moodle/' },
-	{ t: 'Les activités H5P', d: 'Les épreuves exportées une à une : glisser-déposer, tris, cartes, frise, et le scénario à embranchements de l’entretien.', dossier: 'h5p/' },
-	{ t: 'Les contenus des séquences', d: 'Textes de la copie, diapositives « L’essentiel », scripts audio et banques de questions au format GIFT.', dossier: 'sequences/' },
+	{ t: 'Le jeu dans le navigateur', d: 'Jouable sur ce site, sans compte ni serveur. La progression reste dans votre navigateur.' },
+	{ t: 'Le paquet pour Moodle', d: 'Le même jeu, empaqueté en SCORM pour le cours Moodle 4.5 : l’avancement et le score sont transmis à Moodle.' },
+	{ t: 'Les textes des séquences', d: 'La voix de la copie, les feedbacks, les diapositives « L’essentiel » et les scripts audio, repris des documents de conception.' },
 ];
 ---
 
@@ -34,8 +34,7 @@ const livrables = [
 
 	<h2>Ce qui sera publié ici</h2>
 	<p>
-		« Copie conforme ? » est conçu pour Moodle, avec des activités natives et des contenus H5P. Le dépôt publiera de quoi jouer et de quoi
-		réutiliser le jeu :
+		Le jeu est développé d’abord ici, sur le dépôt, puis installé sur Moodle. Le dépôt publiera de quoi jouer et de quoi réutiliser le jeu :
 	</p>
 	<ul class="liv">
 		{
@@ -43,7 +42,6 @@ const livrables = [
 				<li>
 					<strong>{l.t}</strong>
 					<span>{l.d}</span>
-					<code>{l.dossier}</code>
 				</li>
 			))
 		}
@@ -99,8 +97,7 @@ const livrables = [
 	}
 	.liv li {
 		display: grid;
-		grid-template-columns: minmax(0, 1fr) auto;
-		gap: 0.2rem 1rem;
+		gap: 0.2rem;
 		padding: 1rem 1.2rem;
 		border-radius: 0.75rem;
 		border: 1px solid var(--sl-color-gray-5);
@@ -110,13 +107,7 @@ const livrables = [
 		color: var(--sl-color-white);
 	}
 	.liv span {
-		grid-column: 1;
 		color: var(--sl-color-gray-2);
 		font-size: var(--sl-text-sm);
-	}
-	.liv code {
-		grid-column: 2;
-		grid-row: 1 / span 2;
-		align-self: center;
 	}
 </style>

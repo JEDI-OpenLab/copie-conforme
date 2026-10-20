@@ -1,0 +1,152 @@
+---
+// La copie n° 17, en feuille de papier : un rapport impeccable, douze
+// références, dont la quatrième est entourée à l'encre rouge. Les références
+// ne sont que des traits : aucune fausse citation n'est fabriquée.
+const refs = Array.from({ length: 12 }, (_, i) => i + 1);
+const widths = [86, 72, 90, 78, 64, 88, 70, 82, 76, 92, 68, 80];
+---
+
+<figure class="sheet" aria-label="La copie n° 17 : un rapport de projet de douze pages, douze références, la quatrième entourée en rouge avec la mention « introuvable ».">
+	<div class="paper" aria-hidden="true">
+		<header>
+			<span class="num">Copie n° 17</span>
+			<span class="meta">Rapport de projet · 2e année</span>
+			<span class="stamp">Déposée dim. 23 h 58</span>
+		</header>
+		<div class="lines">
+			<i style="width:94%"></i><i style="width:88%"></i><i style="width:91%"></i><i style="width:60%"></i>
+		</div>
+		<p class="refs-title">Références</p>
+		<ol class="refs">
+			{
+				refs.map((n, i) => (
+					<li class={n === 4 ? 'ghost' : ''}>
+						<span class="n">[{n}]</span>
+						<i style={`width:${widths[i]}%`} />
+						{n === 4 && <span class="note">introuvable</span>}
+					</li>
+				))
+			}
+		</ol>
+	</div>
+</figure>
+
+<style>
+	.sheet {
+		margin: 0;
+		perspective: 1200px;
+	}
+	.paper {
+		position: relative;
+		background: var(--paper);
+		color: var(--ink);
+		border: 1px solid var(--paper-edge);
+		border-radius: 4px;
+		padding: 1.4rem 1.5rem 1.6rem;
+		box-shadow:
+			0 1px 0 var(--paper-edge),
+			6px 6px 0 -1px var(--paper),
+			6px 6px 0 0 var(--paper-edge),
+			0 18px 40px rgb(0 0 0 / 0.25);
+		transform: rotate(-1.5deg);
+		font-family: Georgia, 'Times New Roman', serif;
+	}
+	header {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: 0.15rem 1rem;
+		border-bottom: 1px solid var(--paper-line);
+		padding-bottom: 0.75rem;
+		margin-bottom: 0.9rem;
+	}
+	.num {
+		font-size: 1.35rem;
+		font-weight: 700;
+	}
+	.meta {
+		grid-column: 1;
+		font-size: 0.8rem;
+		color: var(--ink-soft);
+	}
+	.stamp {
+		grid-column: 2;
+		grid-row: 1 / span 2;
+		align-self: center;
+		font-family: ui-monospace, Menlo, monospace;
+		font-size: 0.7rem;
+		color: var(--ink-soft);
+		border: 1px dashed var(--ink-soft);
+		border-radius: 3px;
+		padding: 0.2rem 0.45rem;
+		transform: rotate(3deg);
+	}
+	.lines,
+	.refs li {
+		display: flex;
+		flex-direction: column;
+		gap: 0.45rem;
+	}
+	i {
+		display: block;
+		height: 0.45rem;
+		border-radius: 2px;
+		background: var(--paper-line);
+	}
+	.refs-title {
+		margin: 1rem 0 0.5rem;
+		font-size: 0.8rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--ink-soft);
+	}
+	.refs {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+	}
+	.refs li {
+		position: relative;
+		flex-direction: row;
+		align-items: center;
+		gap: 0.5rem;
+		margin: 0;
+	}
+	.n {
+		font-size: 0.68rem;
+		color: var(--ink-soft);
+		width: 1.6rem;
+		flex-shrink: 0;
+	}
+	.refs i {
+		height: 0.38rem;
+	}
+	.ghost i {
+		background: #e6cfc9;
+	}
+	.ghost::before {
+		content: '';
+		position: absolute;
+		left: -0.5rem;
+		right: 18%;
+		top: 50%;
+		height: 1.6rem;
+		translate: 0 -50%;
+		border: 2px solid var(--red-pen);
+		border-radius: 50% 45% 55% 48% / 60% 50% 55% 45%;
+		rotate: -2deg;
+	}
+	.note {
+		position: absolute;
+		right: -0.6rem;
+		top: -0.15rem;
+		font-family: 'Bradley Hand', 'Segoe Print', 'Comic Sans MS', cursive;
+		font-size: 0.95rem;
+		color: var(--red-pen);
+		rotate: -6deg;
+		white-space: nowrap;
+	}
+</style>

@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+# Généré à partir des fichiers Markdown du dépôt (npm run sync)
+src/content/docs/

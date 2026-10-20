@@ -1,0 +1,230 @@
+---
+// Les six séquences de l'enquête, en cartes à retourner : au recto la
+// question du billet et l'épreuve, au verso la carte gagnée pour le dossier
+// (idée-force et ce que la copie sait désormais). Textes repris du scénario
+// détaillé (§ 7.1) et du macro-scénario (§ 2.3).
+const billet = (id: number) => `https://jediopenlab.hypotheses.org/${id}`;
+
+const sequences = [
+	{
+		n: 1,
+		titre: 'La Grille',
+		question: "Peut-on encore interdire l'IA ?",
+		billet: billet(197),
+		epreuve: 'Associer les huit dimensions à leurs questions ; placer le curseur d’assistance de son module.',
+		idee: 'Huit questions remplacent une question binaire.',
+		copie: 'La question “IA ou pas IA ?” était mal posée.',
+	},
+	{
+		n: 2,
+		titre: 'La Chaîne',
+		question: "À qui appartient l'IA qu'on utilise ?",
+		billet: billet(253),
+		epreuve: 'Reconstituer les étages de la chaîne ; passer un outil au test de souveraineté.',
+		idee: "L'IA est appropriable dans les usages, rarement maîtrisable dans ses conditions de production.",
+		copie: "Je viens d'une chaîne, pas d'une application.",
+	},
+	{
+		n: 3,
+		titre: 'Le Poids',
+		question: "Combien pèse une réponse d'IA ?",
+		billet: billet(383),
+		epreuve: 'Estimer, puis classer cinq usages du plus léger au plus lourd.',
+		idee: "Une réponse d'IA pèse peu ; le régime de réponse permanente pèse lourd, et inégalement.",
+		copie: 'Je pèse peu. Nous pesons lourd.',
+	},
+	{
+		n: 4,
+		titre: 'La Matière',
+		question: "Avec quoi l'IA est-elle entraînée ?",
+		billet: billet(411),
+		epreuve: 'Ordonner les jalons judiciaires ; retourner les cartes de provenance sur une phrase du rapport.',
+		idee: "L'IA est entraînée avec le travail des autres, converti en matière première à coût quasi nul.",
+		copie: 'Je suis faite de phrases qui ont eu des auteurs.',
+	},
+	{
+		n: 5,
+		titre: 'Le Motif',
+		question: "L'IA, dernier avatar du capitalocène ?",
+		billet: billet(421),
+		epreuve: '« Exploité ou approprié ? » ; voter pour l’objection la plus forte.',
+		idee: "Prendre à bas coût ce qui n'a pas de défenseur, raffiner, vendre, laisser les coûts à d'autres.",
+		copie: "J'en porte la marque.",
+	},
+	{
+		n: 6,
+		titre: "L'Effort",
+		question: "Que devient l'apprendre quand la machine sait répondre ?",
+		billet: billet(438),
+		epreuve: 'Parier sur sa certitude ; ranger huit gestes sous les quatre efforts.',
+		idee: "La performance produite n'est pas la compétence construite.",
+		copie: "Ce qui compte n'est pas écrit dans une copie.",
+	},
+];
+---
+
+<ol class="cartes">
+	{
+		sequences.map((s) => (
+			<li>
+				<div class="carte">
+					<button type="button" class="flip" aria-pressed="false" aria-label={`Séquence ${s.n}, ${s.titre} : retourner la carte`}>
+						<span class="face recto">
+							<span class="num">Séquence {s.n}</span>
+							<strong class="titre">{s.titre}</strong>
+							<span class="question">{s.question}</span>
+							<span class="epreuve">
+								<b>L'épreuve</b> {s.epreuve}
+							</span>
+							<span class="hint" aria-hidden="true">Retourner la carte ↻</span>
+						</span>
+						<span class="face verso">
+							<span class="num">Carte du dossier · {s.titre}</span>
+							<strong class="idee">{s.idee}</strong>
+							<span class="copie">« {s.copie} »</span>
+							<span class="hint" aria-hidden="true">↻ Revenir à la séquence</span>
+						</span>
+					</button>
+				</div>
+				<a class="billet" href={s.billet}>
+					Lire le billet source ↗
+				</a>
+			</li>
+		))
+	}
+</ol>
+
+<script>
+	document.querySelectorAll<HTMLButtonElement>('.cartes .flip').forEach((btn) => {
+		btn.addEventListener('click', () => {
+			const on = btn.getAttribute('aria-pressed') !== 'true';
+			btn.setAttribute('aria-pressed', String(on));
+		});
+	});
+</script>
+
+<style>
+	.cartes {
+		list-style: none;
+		padding: 0;
+		margin: 1.75rem 0 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+		gap: 1.25rem;
+	}
+	.cartes li {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		margin: 0;
+	}
+	.carte {
+		perspective: 1400px;
+		flex: 1;
+	}
+	.flip {
+		all: unset;
+		box-sizing: border-box;
+		display: grid;
+		width: 100%;
+		height: 100%;
+		min-height: 17rem;
+		cursor: pointer;
+		transform-style: preserve-3d;
+		transition: transform 0.55s cubic-bezier(0.3, 0.7, 0.3, 1);
+		border-radius: 0.9rem;
+	}
+	.flip:focus-visible {
+		outline: 3px solid var(--sl-color-accent);
+		outline-offset: 3px;
+	}
+	.flip[aria-pressed='true'] {
+		transform: rotateY(180deg);
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.flip {
+			transition: none;
+		}
+	}
+	.face {
+		grid-area: 1 / 1;
+		display: flex;
+		flex-direction: column;
+		gap: 0.55rem;
+		padding: 1.25rem 1.3rem 1.1rem;
+		border-radius: 0.9rem;
+		backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+		line-height: 1.45;
+	}
+	.recto {
+		background: var(--sl-color-bg-nav);
+		border: 1px solid var(--sl-color-gray-5);
+		border-top: 4px solid var(--sl-color-accent);
+		color: var(--sl-color-gray-2);
+	}
+	.flip:hover .recto {
+		border-color: var(--sl-color-accent);
+	}
+	.verso {
+		transform: rotateY(180deg);
+		background: var(--paper);
+		color: var(--ink);
+		border: 1px solid var(--paper-edge);
+		font-family: Georgia, 'Times New Roman', serif;
+	}
+	.num {
+		font-size: var(--sl-text-xs);
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--sl-color-accent);
+		font-family: var(--__sl-font);
+	}
+	.verso .num {
+		color: var(--red-pen);
+	}
+	.titre {
+		font-size: var(--sl-text-2xl);
+		color: var(--sl-color-white);
+		line-height: 1.15;
+	}
+	.question {
+		font-style: italic;
+		color: var(--sl-color-gray-1);
+	}
+	.epreuve {
+		font-size: var(--sl-text-sm);
+		margin-top: auto;
+	}
+	.epreuve b {
+		display: block;
+		color: var(--sl-color-white);
+		font-size: var(--sl-text-xs);
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+	}
+	.idee {
+		font-size: var(--sl-text-lg);
+		line-height: 1.35;
+	}
+	.copie {
+		font-style: italic;
+		color: var(--ink-soft);
+		margin-top: auto;
+	}
+	.hint {
+		font-size: var(--sl-text-xs);
+		font-weight: 600;
+		color: var(--sl-color-gray-3);
+		font-family: var(--__sl-font);
+	}
+	.verso .hint {
+		color: var(--ink-soft);
+	}
+	.billet {
+		font-size: var(--sl-text-sm);
+		font-weight: 600;
+		padding-left: 0.25rem;
+	}
+</style>

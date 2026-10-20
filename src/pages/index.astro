@@ -1,0 +1,642 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import CopieSheet from '../components/home/CopieSheet.astro';
+import Cartes from '../components/home/Cartes.astro';
+import { avancement, journal } from '../data/projet';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const u = (p: string) => `${base}/${p}`;
+
+const etapes = avancement();
+const enCours = etapes.findIndex((e) => !e.fait);
+const dernieres = journal().slice(0, 3);
+
+const stats = [
+	{ n: '1 h 45', l: 'en capsules de 15 minutes, à son rythme' },
+	{ n: '6', l: 'séquences d’enquête, un prologue, un épilogue' },
+	{ n: '2', l: 'hors-pistes facultatifs' },
+	{ n: '8', l: 'billets du carnet JEDI-OpenLab comme matière première' },
+];
+
+// La boucle d'une séquence (macro-scénario, § 6)
+const boucle = [
+	{ t: '1 min', d: 'La scène : la copie raconte' },
+	{ t: '2 min', d: 'L’accroche, avant toute lecture' },
+	{ t: '5 min', d: 'L’essentiel, en trois idées' },
+	{ t: '5 min', d: 'L’épreuve, corrigée et expliquée' },
+	{ t: '1 min', d: 'Le carnet : « Et dans mon cours ? »' },
+	{ t: '1 min', d: 'La carte et le badge' },
+];
+
+// Les trois fins de l'entretien (scénario détaillé, scène 7)
+const fins = [
+	{ t: 'Fin complète', d: 'Les trois angles explorés : une partie construite, une partie produite, une vérification absente. La même copie contient les trois.' },
+	{ t: 'Fin partielle', d: 'L’entretien se conclut sur un ou deux angles seulement. Le diagnostic tient, mais ne regarde qu’une partie de la copie.' },
+	{ t: 'Fin du procès', d: 'L’entretien reste sur l’accusation et s’arrête sur un malaise. On ne sait toujours pas ce qui a été appris.' },
+];
+
+const publics = [
+	{ t: 'Enseignants', d: 'Comprendre ce qu’engage l’IA générative avant de décider d’une règle, d’une consigne ou d’une évaluation.' },
+	{ t: 'Ingénieurs pédagogiques', d: 'Un parcours d’autoformation à adapter dans son établissement : il suffit de remplacer les appels à l’action.' },
+	{ t: 'Concepteurs de jeux', d: 'Un cas documenté de bout en bout, de l’analyse du besoin au test, avec ADDIE et D.I.C.E.' },
+];
+---
+
+<StarlightPage
+	frontmatter={{
+		title: 'Copie conforme ? Enquête sur une réponse d’IA',
+		description:
+			"Serious game d'autoformation pour les enseignants du supérieur : une enquête sur une réponse d'IA, conçue et documentée en ressource éducative libre.",
+		template: 'splash',
+		pagefind: false,
+	}}
+	hasSidebar={false}
+>
+	<div class="home not-content">
+		<section class="hero">
+			<div class="hero-text">
+				<p class="eyebrow">Serious game · autoformation · JEDI-OpenLab</p>
+				<h1>Copie conforme ? <span>Enquête sur une réponse d’IA</span></h1>
+				<p class="status"><span class="dot" aria-hidden="true"></span> En conception · le jeu se construit ici, en public</p>
+				<blockquote>
+					« Je suis la copie n° 17. Rendue dimanche, à 23 h 58, deux minutes avant la fermeture du dépôt. Douze pages, douze références, un plan
+					limpide, pas une faute. […] Je ne sais pas d’où je viens. »
+				</blockquote>
+				<p class="lede">
+					Un serious game d’autoformation pour les enseignants du supérieur, sur Moodle. Vous jouez votre propre rôle et menez l’enquête avec
+					la copie, de l’outil jusqu’à l’apprentissage de l’étudiant·e.
+				</p>
+				<div class="ctas">
+					<a class="btn primary" href="#parcours">Découvrir l’enquête</a>
+					<a class="btn" href="#avancement">Suivre la conception</a>
+					<a class="btn" href={u('jouer/')}>Jouer</a>
+				</div>
+			</div>
+			<CopieSheet />
+		</section>
+
+		<ul class="stats">
+			{
+				stats.map((s) => (
+					<li>
+						<strong>{s.n}</strong>
+						<span>{s.l}</span>
+					</li>
+				))
+			}
+		</ul>
+
+		<section>
+			<p class="kicker">Le synopsis</p>
+			<h2>Une copie trop parfaite</h2>
+			<div class="synopsis">
+				<p>
+					Dimanche, 23 h 58. La copie n° 17 arrive sur Moodle : un rapport de projet impeccable, douze références, pas une faute. Puis elle
+					prend la parole. Elle connaît son texte mot pour mot, mais elle ne sait pas d’où elle vient. Et l’une de ses références n’existe pas.
+				</p>
+				<p>
+					À chaque séquence, l’enquête remonte d’un cran, et la copie apprend quelque chose sur elle-même. À la sixième, l’enquête se retourne :
+					la question n’était pas de savoir s’il y avait eu triche, mais <strong>ce qu’avait appris la personne qui a rendu la copie</strong>.
+				</p>
+			</div>
+		</section>
+
+		<section id="parcours">
+			<p class="kicker">Le parcours</p>
+			<h2>Six séquences, six cartes pour le dossier</h2>
+			<p class="intro">
+				Chaque séquence condense un billet publié en 15 minutes et se termine sur votre propre cours. Retournez une carte pour voir ce qu’elle
+				ajoute au dossier d’enquête.
+			</p>
+			<Cartes />
+
+			<div class="side">
+				<div class="box">
+					<p class="kicker">Avant</p>
+					<strong>Prologue · La copie n° 17</strong>
+					<span>5 minutes. Vous vérifiez la quatrième référence : elle n’existe pas. Premier réflexe ? Votre réponse sera relue à la fin.</span>
+				</div>
+				<div class="box">
+					<p class="kicker">Facultatif</p>
+					<strong>Hors-piste A · Le présentiel deviendra-t-il un privilège ?</strong>
+					<span>S’ouvre après la séquence 3. <a href="https://jediopenlab.hypotheses.org/379">Billet source ↗</a></span>
+				</div>
+				<div class="box">
+					<p class="kicker">Facultatif</p>
+					<strong>Hors-piste B · Itinéraire d’une IA pédagogique souveraine</strong>
+					<span>S’ouvre après la séquence 2. <a href="https://jediopenlab.hypotheses.org/209">Billet source ↗</a></span>
+				</div>
+			</div>
+		</section>
+
+		<section class="split">
+			<div>
+				<p class="kicker">L’épilogue</p>
+				<h2>L’entretien</h2>
+				<p class="intro">
+					La copie ne peut pas répondre à sa place : il faut parler avec la personne qui l’a rendue. Dix minutes pour présenter le rapport,
+					trois angles à explorer, trois fins possibles. Chacune renvoie à la consigne, jamais à une sanction, et l’entretien se rejoue.
+				</p>
+				<p class="question">Qu’est-ce qui, dans votre consigne, rendait ces efforts facultatifs ?</p>
+			</div>
+			<ol class="fins">
+				{
+					fins.map((f, i) => (
+						<li class={i === 0 ? 'best' : ''}>
+							<strong>{f.t}</strong>
+							<span>{f.d}</span>
+						</li>
+					))
+				}
+			</ol>
+		</section>
+
+		<section>
+			<p class="kicker">La mécanique</p>
+			<h2>La boucle de 15 minutes</h2>
+			<p class="intro">Chaque séquence répète la même boucle. Le joueur fait quelque chose, le jeu répond, l’apprenant comprend.</p>
+			<ol class="boucle">
+				{
+					boucle.map((b) => (
+						<li>
+							<span class="t">{b.t}</span>
+							<span>{b.d}</span>
+						</li>
+					))
+				}
+			</ol>
+			<a class="more" href={u('conception/macro-scenario/')}>Lire le macro-scénario →</a>
+		</section>
+
+		<section id="avancement">
+			<p class="kicker">L’avancement</p>
+			<h2>Le jeu se construit en public</h2>
+			<p class="intro">
+				Le dépôt suit le projet de l’analyse du besoin jusqu’au test. Les documents de conception sont publiés tels quels, au fur et à mesure.
+			</p>
+			<ol class="addie">
+				{
+					etapes.map((e, i) => (
+						<li class={e.fait ? 'fait' : i === enCours ? 'courant' : ''}>
+							<span class="phase">{e.phase}</span>
+							{e.href ? <a href={e.href}>{e.livrable}</a> : <strong>{e.livrable}</strong>}
+							<span class="etat">{i === enCours ? 'Prochaine étape' : e.etat}</span>
+						</li>
+					))
+				}
+			</ol>
+
+			<div class="journal">
+				<h3>Dernières entrées du journal</h3>
+				<ol>
+					{
+						dernieres.map((j) => (
+							<li>
+								<span class="date">{j.date}</span>
+								<strong>{j.titre}</strong>
+								<span class="texte">{j.texte}</span>
+							</li>
+						))
+					}
+				</ol>
+				<a class="more" href={u('journal/')}>Tout le journal de conception →</a>
+			</div>
+		</section>
+
+		<section>
+			<p class="kicker">Pour qui ?</p>
+			<h2>Jouer, adapter, s’en inspirer</h2>
+			<ul class="cards">
+				{
+					publics.map((p) => (
+						<li>
+							<strong>{p.t}</strong>
+							<span>{p.d}</span>
+						</li>
+					))
+				}
+			</ul>
+		</section>
+
+		<footer class="license">
+			Ressource éducative libre. Contenus originaux sous licence <a href="https://creativecommons.org/licenses/by/4.0/deed.fr">CC BY 4.0</a>,
+			tirés des billets du carnet <a href="https://jediopenlab.hypotheses.org/">JEDI-OpenLab</a>. Conçu à Centrale Lille.
+			<a href={u('licence/')}>Licence</a>.
+		</footer>
+	</div>
+</StarlightPage>
+
+<style>
+	:global(.content-panel:has(h1#_top)) {
+		display: none;
+	}
+	:global(.content-panel:has(h1#_top) + .content-panel) {
+		border-top: 0;
+	}
+	.home {
+		max-width: 72rem;
+		margin-inline: auto;
+	}
+	section {
+		margin-block: 4.5rem;
+	}
+	.hero {
+		margin-top: 1.5rem;
+		display: grid;
+		grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+		gap: 3rem;
+		align-items: center;
+	}
+	@media (max-width: 56rem) {
+		.hero {
+			grid-template-columns: 1fr;
+		}
+		.hero :global(.sheet) {
+			max-width: 24rem;
+			margin-inline: auto;
+		}
+	}
+	.eyebrow,
+	.kicker {
+		font-size: var(--sl-text-sm);
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--sl-color-accent);
+		margin: 0 0 0.5rem;
+	}
+	h1 {
+		font-size: clamp(2.4rem, 5.5vw, 4rem);
+		line-height: 1.05;
+		margin: 0;
+		color: var(--sl-color-white);
+		letter-spacing: -0.02em;
+	}
+	h1 span {
+		display: block;
+		font-size: 0.55em;
+		font-weight: 600;
+		margin-top: 0.4rem;
+		color: var(--sl-color-gray-2);
+		letter-spacing: -0.01em;
+	}
+	h2 {
+		font-size: clamp(1.6rem, 3vw, 2.2rem);
+		margin: 0 0 0.75rem;
+		color: var(--sl-color-white);
+		letter-spacing: -0.01em;
+	}
+	h3 {
+		font-size: var(--sl-text-lg);
+		color: var(--sl-color-white);
+		margin: 0 0 1rem;
+	}
+	.status {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin: 1.25rem 0 0;
+		padding: 0.3rem 0.85rem;
+		border-radius: 999px;
+		border: 1px solid var(--sl-color-gray-5);
+		font-size: var(--sl-text-sm);
+		font-weight: 600;
+		color: var(--sl-color-gray-2);
+	}
+	.dot {
+		width: 0.55rem;
+		height: 0.55rem;
+		border-radius: 50%;
+		background: var(--sl-color-accent);
+		box-shadow: 0 0 0 4px var(--sl-color-accent-low);
+	}
+	blockquote {
+		margin: 1.5rem 0 1rem;
+		padding-left: 1rem;
+		border-left: 4px solid var(--sl-color-accent);
+		font-family: Georgia, 'Times New Roman', serif;
+		font-size: var(--sl-text-xl);
+		font-style: italic;
+		line-height: 1.5;
+		color: var(--sl-color-white);
+		max-width: 42rem;
+	}
+	.lede,
+	.intro,
+	.synopsis p {
+		max-width: 46rem;
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-lg);
+		line-height: 1.6;
+	}
+	.synopsis strong {
+		color: var(--sl-color-white);
+	}
+	.ctas {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 1.5rem;
+	}
+	.btn {
+		padding: 0.7rem 1.3rem;
+		border-radius: 999px;
+		border: 1px solid var(--sl-color-gray-4);
+		color: var(--sl-color-white);
+		text-decoration: none;
+		font-weight: 600;
+	}
+	.btn:hover {
+		border-color: var(--sl-color-accent);
+	}
+	.btn.primary {
+		background: var(--sl-color-accent);
+		border-color: var(--sl-color-accent);
+		color: var(--sl-color-black);
+	}
+	.stats {
+		list-style: none;
+		padding: 0;
+		margin: 3rem 0 0;
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 1rem;
+	}
+	@media (max-width: 50rem) {
+		.stats {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+	.stats li {
+		border-top: 3px solid var(--sl-color-gray-5);
+		padding-top: 0.75rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+	.stats li:first-child {
+		border-color: var(--sl-color-accent);
+	}
+	.stats strong {
+		font-size: var(--sl-text-3xl);
+		color: var(--sl-color-white);
+		line-height: 1.1;
+	}
+	.stats span {
+		color: var(--sl-color-gray-3);
+		font-size: var(--sl-text-sm);
+	}
+	.side {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+		margin-top: 1.25rem;
+	}
+	@media (max-width: 56rem) {
+		.side {
+			grid-template-columns: 1fr;
+		}
+	}
+	.box {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		padding: 1rem 1.2rem;
+		border-radius: 0.9rem;
+		border: 1px dashed var(--sl-color-gray-4);
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-sm);
+	}
+	.box .kicker {
+		font-size: var(--sl-text-xs);
+		margin: 0;
+	}
+	.box strong {
+		color: var(--sl-color-white);
+		font-size: var(--sl-text-base);
+	}
+	.split {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		gap: 2.5rem;
+		align-items: center;
+	}
+	@media (max-width: 50rem) {
+		.split {
+			grid-template-columns: 1fr;
+		}
+	}
+	.question {
+		margin-top: 1.25rem;
+		font-family: Georgia, 'Times New Roman', serif;
+		font-style: italic;
+		font-size: var(--sl-text-xl);
+		color: var(--sl-color-accent-high);
+	}
+	.fins {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+	.fins li {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		margin: 0;
+		padding: 1rem 1.2rem;
+		border-radius: 0.75rem;
+		background: var(--sl-color-bg-nav);
+		border: 1px solid var(--sl-color-gray-5);
+		border-left: 4px solid var(--sl-color-gray-4);
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-sm);
+	}
+	.fins li.best {
+		border-left-color: var(--done);
+	}
+	.fins strong {
+		color: var(--sl-color-white);
+		font-size: var(--sl-text-base);
+	}
+	.boucle {
+		list-style: none;
+		padding: 0;
+		margin: 1.5rem 0 0;
+		display: grid;
+		grid-template-columns: repeat(6, minmax(0, 1fr));
+		gap: 0.5rem;
+		counter-reset: b;
+	}
+	@media (max-width: 56rem) {
+		.boucle {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+	.boucle li {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		margin: 0;
+		padding: 0.9rem 1rem;
+		border-radius: 0.6rem;
+		background: var(--sl-color-bg-nav);
+		border: 1px solid var(--sl-color-gray-5);
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-sm);
+		line-height: 1.4;
+	}
+	.boucle .t {
+		font-weight: 800;
+		color: var(--sl-color-accent);
+	}
+	.more {
+		display: inline-block;
+		margin-top: 1rem;
+		font-weight: 700;
+	}
+	.addie {
+		list-style: none;
+		padding: 0;
+		margin: 1.75rem 0 0;
+		display: grid;
+		grid-template-columns: repeat(6, minmax(0, 1fr));
+		gap: 0;
+	}
+	@media (max-width: 56rem) {
+		.addie {
+			grid-template-columns: 1fr;
+			gap: 0.5rem;
+		}
+	}
+	.addie li {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+		margin: 0;
+		padding: 1.4rem 1rem 0 0;
+		border-top: 4px solid var(--sl-color-gray-5);
+		color: var(--sl-color-gray-3);
+		font-size: var(--sl-text-sm);
+	}
+	.addie li::before {
+		content: '';
+		position: absolute;
+		top: -0.65rem;
+		left: 0;
+		width: 1.1rem;
+		height: 1.1rem;
+		border-radius: 50%;
+		background: var(--sl-color-bg);
+		border: 3px solid var(--sl-color-gray-5);
+		box-sizing: border-box;
+	}
+	.addie li.fait {
+		border-top-color: var(--done);
+	}
+	.addie li.fait::before {
+		background: var(--done);
+		border-color: var(--done);
+	}
+	.addie li.courant::before {
+		border-color: var(--sl-color-accent);
+		box-shadow: 0 0 0 4px var(--sl-color-accent-low);
+	}
+	.addie .phase {
+		font-size: var(--sl-text-xs);
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+	}
+	.addie a,
+	.addie strong {
+		color: var(--sl-color-white);
+		font-weight: 600;
+		font-size: var(--sl-text-base);
+		line-height: 1.3;
+	}
+	.addie .etat {
+		font-weight: 600;
+	}
+	.addie .fait .etat {
+		color: var(--done);
+	}
+	.addie .courant .etat {
+		color: var(--sl-color-accent);
+	}
+	.journal {
+		margin-top: 3rem;
+		padding: 1.5rem;
+		border-radius: 0.9rem;
+		background: var(--sl-color-bg-nav);
+		border: 1px solid var(--sl-color-gray-5);
+	}
+	.journal ol {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+	.journal li {
+		display: grid;
+		grid-template-columns: 11rem minmax(0, 1fr);
+		gap: 0.15rem 1rem;
+		margin: 0;
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-sm);
+	}
+	@media (max-width: 40rem) {
+		.journal li {
+			grid-template-columns: 1fr;
+		}
+	}
+	.journal .date {
+		grid-row: span 2;
+		font-weight: 700;
+		color: var(--sl-color-accent);
+	}
+	.journal strong {
+		color: var(--sl-color-white);
+		font-size: var(--sl-text-base);
+	}
+	.journal .texte {
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+	.cards {
+		list-style: none;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+		gap: 1rem;
+	}
+	.cards li {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+		margin: 0;
+		padding: 1.25rem;
+		border-radius: 0.9rem;
+		border: 1px solid var(--sl-color-gray-5);
+		background: var(--sl-color-bg-nav);
+		color: var(--sl-color-gray-2);
+	}
+	.cards strong {
+		color: var(--sl-color-white);
+		font-size: var(--sl-text-lg);
+	}
+	.license {
+		border-top: 1px solid var(--sl-color-gray-5);
+		padding-top: 1.5rem;
+		margin-bottom: 3rem;
+		color: var(--sl-color-gray-3);
+		font-size: var(--sl-text-sm);
+	}
+</style>

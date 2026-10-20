@@ -1,0 +1,54 @@
+/* Encre rouge de correction pour l'accent, papier pour la copie n° 17.
+   Starlight est sombre par défaut (:root), le thème clair a ses propres valeurs. */
+:root[data-theme='light'] {
+	--sl-color-accent-low: #f9e1dd;
+	--sl-color-accent: #a8261b;
+	--sl-color-accent-high: #561008;
+
+	--paper: #fbf8f1;
+	--paper-edge: #e4dccb;
+	--paper-line: #e9e2d2;
+	--ink: #2a2620;
+	--ink-soft: #8a8170;
+	--red-pen: #c0281c;
+	--done: #2e7d4a;
+	--done-f: #e3f4e6;
+}
+
+:root {
+	--sl-color-accent-low: #3d1a16;
+	--sl-color-accent: #f0857a;
+	--sl-color-accent-high: #fbd6d0;
+
+	--paper: #f4efe3;
+	--paper-edge: #cfc5af;
+	--paper-line: #e2dac6;
+	--ink: #2a2620;
+	--ink-soft: #857c6a;
+	--red-pen: #c0281c;
+	--done: #6cc08a;
+	--done-f: #183324;
+}
+
+/* Ligne de version en tête des documents de conception */
+.sl-markdown-content > p:first-child > em:only-child {
+	display: block;
+	padding: 0.75rem 1rem;
+	border-left: 4px solid var(--sl-color-accent);
+	background: var(--sl-color-accent-low);
+	border-radius: 0 0.6rem 0.6rem 0;
+	font-style: normal;
+	color: var(--sl-color-white);
+	font-size: var(--sl-text-sm);
+}
+
+/* Répliques de la copie : citations en italique, en marge rouge */
+.sl-markdown-content blockquote {
+	border-left-color: var(--sl-color-accent);
+}
+
+/* Cases à cocher des points ouverts : affichées, non modifiables */
+.sl-markdown-content input[type='checkbox'] {
+	accent-color: var(--sl-color-accent);
+	vertical-align: -0.15em;
+}

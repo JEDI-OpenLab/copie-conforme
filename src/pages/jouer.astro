@@ -1,0 +1,122 @@
+---
+// Page du jeu : tant que le pilote n'est pas produit, elle dit ce qui sera
+// publié ici et où en est la production (tableau du README).
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { avancement } from '../data/projet';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const u = (p: string) => `${base}/${p}`;
+const pilote = avancement().find((e) => /pilote/i.test(e.livrable));
+
+const livrables = [
+	{ t: 'Le cours Moodle', d: 'La sauvegarde complète du cours, à restaurer sur votre plateforme (Moodle 4.5) : sections, achèvements, restrictions, badges.', dossier: 'moodle/' },
+	{ t: 'Les activités H5P', d: 'Les épreuves exportées une à une : glisser-déposer, tris, cartes, frise, et le scénario à embranchements de l’entretien.', dossier: 'h5p/' },
+	{ t: 'Les contenus des séquences', d: 'Textes de la copie, diapositives « L’essentiel », scripts audio et banques de questions au format GIFT.', dossier: 'sequences/' },
+];
+---
+
+<StarlightPage
+	frontmatter={{
+		title: 'Jouer',
+		description: 'Où et comment jouer à « Copie conforme ? », et ce qui sera publié ici.',
+	}}
+>
+	<div class="banner">
+		<span class="dot" aria-hidden="true"></span>
+		<div>
+			<strong>Le jeu n’est pas encore jouable.</strong>
+			<span>
+				Prochaine étape : {pilote ? pilote.livrable.toLowerCase() : 'le pilote'} ({pilote ? pilote.etat.toLowerCase() : 'à venir'}). Il sera
+				publié ici dès sa production, avant le test avec des enseignants volontaires.
+			</span>
+		</div>
+	</div>
+
+	<h2>Ce qui sera publié ici</h2>
+	<p>
+		« Copie conforme ? » est conçu pour Moodle, avec des activités natives et des contenus H5P. Le dépôt publiera de quoi jouer et de quoi
+		réutiliser le jeu :
+	</p>
+	<ul class="liv">
+		{
+			livrables.map((l) => (
+				<li>
+					<strong>{l.t}</strong>
+					<span>{l.d}</span>
+					<code>{l.dossier}</code>
+				</li>
+			))
+		}
+	</ul>
+
+	<h2>En attendant</h2>
+	<ul>
+		<li>
+			Lire le <a href={u('conception/scenario-detaille/')}>scénario détaillé</a> : chaque scène y est écrite, avec la voix de la copie, les
+			épreuves et leurs feedbacks.
+		</li>
+		<li>
+			Suivre le <a href={u('journal/')}>journal de conception</a>, qui date chaque étape.
+		</li>
+		<li>
+			Lire les <a href="https://jediopenlab.hypotheses.org/">billets du carnet JEDI-OpenLab</a> dont le jeu est tiré.
+		</li>
+	</ul>
+</StarlightPage>
+
+<style>
+	.banner {
+		display: flex;
+		gap: 0.9rem;
+		align-items: flex-start;
+		padding: 1rem 1.25rem;
+		border-radius: 0.75rem;
+		border: 1px solid var(--sl-color-accent);
+		background: var(--sl-color-accent-low);
+		color: var(--sl-color-gray-1);
+	}
+	.banner div {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+	}
+	.banner strong {
+		color: var(--sl-color-white);
+	}
+	.dot {
+		flex-shrink: 0;
+		margin-top: 0.45rem;
+		width: 0.6rem;
+		height: 0.6rem;
+		border-radius: 50%;
+		background: var(--sl-color-accent);
+	}
+	.liv {
+		list-style: none;
+		padding: 0;
+		display: grid;
+		gap: 0.75rem;
+	}
+	.liv li {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: 0.2rem 1rem;
+		padding: 1rem 1.2rem;
+		border-radius: 0.75rem;
+		border: 1px solid var(--sl-color-gray-5);
+		background: var(--sl-color-bg-nav);
+	}
+	.liv strong {
+		color: var(--sl-color-white);
+	}
+	.liv span {
+		grid-column: 1;
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-sm);
+	}
+	.liv code {
+		grid-column: 2;
+		grid-row: 1 / span 2;
+		align-self: center;
+	}
+</style>
